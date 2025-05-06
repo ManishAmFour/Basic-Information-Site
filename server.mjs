@@ -1,8 +1,10 @@
 import http from "http";
 import * as fs from "node:fs";
+import "dotenv/config";
 
 http
   .createServer((req, res) => {
+    console.log(process.env);
     if (req.url === "/about") {
       fs.readFile("./about.html", "utf8", (err, data) => {
         res.write(data);
